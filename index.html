@@ -1,0 +1,557 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capitally</title>
+    <link rel="stylesheet" href="style.css" />
+    link
+  </head>
+  <body>
+    <!-- NAV BAR -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="logo-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" x2="12" y1="2" y2="22"></line>
+              <path
+                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              ></path>
+            </svg>
+          </div>
+          <span class="logo-text">Capitally</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#preview">Preview</a>
+          <a href="#Testimonials">Reviews</a>
+        </div>
+        <a href="./website/index.html" class="nav-btn">Get Started →</a>
+
+        <!-- Hamburger button — visible only on mobile (controlled by CSS) -->
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-inner">
+        <!-- LEFT: Text Content -->
+        <div class="hero-left">
+          <a href="#" class="budget-pill anim-fade-up">
+            <svg
+              class="trend-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span class="pill-text"
+              >Simple budgeting for students and workers</span
+            >
+          </a>
+
+          <div class="hero-content anim-fade-up delay-1">
+            <h1 class="hero-headline">
+              Track Every <span class="text-gradient gradient-peso">Peso.</span
+              ><br />
+              Own Every
+              <span class="text-gradient gradient-decision">Decision.</span>
+            </h1>
+            <p class="hero-subheadline">
+              Capitally helps you track income, categorize expenses, and hit
+              your savings goals — without the spreadsheet headache.
+            </p>
+          </div>
+
+          <div class="cta-group anim-fade-up delay-2">
+            <button class="btn-tracking" onclick="window.open('lol.html', '_blank')">
+              Start Tracking Free
+              <span class="arrow-icon"></span>
+            </button>
+            <a href="#preview" class="btn-secondary">See how it works</a>
+          </div>
+
+          <div class="perks-container">
+            <div class="perk-item anim-fade-up delay-4">
+              <span class="icon-check"></span>No credit card required
+            </div>
+            <div class="perk-item anim-fade-up delay-5">
+              <span class="icon-check"></span>Works offline
+            </div>
+            <div class="perk-item anim-fade-up delay-6">
+              <span class="icon-check"></span>No account needed to start
+            </div>
+            <div class="perk-item anim-fade-up delay-7">
+              <span class="icon-check"></span>Export your data anytime
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="cap-mockup cap-mockup-hero" data-cap-mockup>
+  <div class="cap-window-bar">
+    <div class="cap-window-brand">
+      <span class="cap-brand-dot"></span>
+      <span>Capitally</span>
+    </div>
+    <div class="cap-window-actions" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="cap-app-shell">
+    <aside class="cap-sidebar">
+      <button class="cap-nav-item is-active" type="button" data-panel="overview">Overview</button>
+      <button class="cap-nav-item" type="button" data-panel="budget">Budget</button>
+      <button class="cap-nav-item" type="button" data-panel="goals">Goals</button>
+    </aside>
+
+    <div class="cap-dashboard">
+      <div class="cap-topline">
+        <div>
+          <span class="cap-kicker">Student Budget</span>
+          <h3 class="cap-title">May Dashboard</h3>
+        </div>
+        <div class="cap-month-tabs" aria-label="Choose dashboard month">
+          <button class="cap-month is-active" type="button" data-month="may">May</button>
+          <button class="cap-month" type="button" data-month="june">June</button>
+        </div>
+      </div>
+
+      <div class="cap-summary-grid">
+        <button class="cap-summary-card is-active" type="button" data-summary="balance">
+          <span>Net Balance</span>
+          <strong data-balance>₱24,500</strong>
+        </button>
+        <button class="cap-summary-card" type="button" data-summary="spent">
+          <span>Spent</span>
+          <strong data-spent>₱17,500</strong>
+        </button>
+        <button class="cap-summary-card" type="button" data-summary="saved">
+          <span>Saved</span>
+          <strong data-saved>₱8,200</strong>
+        </button>
+      </div>
+
+      <div class="cap-preview-grid">
+        <section class="cap-panel cap-chart-panel">
+          <div class="cap-panel-head">
+            <span>Spending by Category</span>
+            <button class="cap-chip" type="button" data-action="budget">Set limit</button>
+          </div>
+          <div class="cap-bar-row">
+            <span>Food</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill" data-bar="food"></div></div>
+            <strong data-food>₱5,400</strong>
+          </div>
+          <div class="cap-bar-row">
+            <span>Transport</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill teal" data-bar="transport"></div></div>
+            <strong data-transport>₱2,800</strong>
+          </div>
+          <div class="cap-bar-row">
+            <span>Shopping</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill amber" data-bar="shopping"></div></div>
+            <strong data-shopping>₱4,100</strong>
+          </div>
+        </section>
+
+        <section class="cap-panel cap-insight-panel">
+          <div class="cap-panel-head">
+            <span>Heads up</span>
+            <span class="cap-live-dot">Live</span>
+          </div>
+          <p data-message>Food is taking 31% of your spending. Try setting a ₱4,800 limit this week.</p>
+          <div class="cap-progress-ring" aria-hidden="true"><span data-score>72%</span></div>
+        </section>
+      </div>
+
+      <div class="cap-actions">
+        <button type="button" data-action="expense">+ Expense</button>
+        <button type="button" data-action="income">+ Income</button>
+        <button type="button" data-action="goal">Savings Goal</button>
+      </div>
+
+      <section class="cap-panel cap-transaction-panel">
+        <div class="cap-panel-head">
+          <span>Recent Transactions</span>
+          <span class="cap-muted">Click one</span>
+        </div>
+        <button class="cap-transaction" type="button" data-transaction="food">
+          <span class="cap-txn-icon food">🍔</span>
+          <span><strong>Jollibee</strong><small>Today, 12:30 PM</small></span>
+          <b>−₱280</b>
+        </button>
+        <button class="cap-transaction" type="button" data-transaction="salary">
+          <span class="cap-txn-icon income">💼</span>
+          <span><strong>Salary – May</strong><small>May 15, 2026</small></span>
+          <b class="income">+₱42,000</b>
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item anim-pop delay-1">
+          <p class="stat-number">10,000+</p>
+          <p class="stat-label">Active Users</p>
+        </div>
+
+        <div class="stat-item anim-pop delay-2">
+          <p class="stat-number">₱2.1B</p>
+          <p class="stat-label">Tracked</p>
+        </div>
+
+        <div class="stat-item anim-pop delay-3">
+          <p class="stat-number">98%</p>
+          <p class="stat-label">Satisfaction</p>
+        </div>
+
+        <div class="stat-item anim-pop delay-4">
+          <p class="stat-number">Free</p>
+          <p class="stat-label">Always</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2ND SECTION FEATURES -->
+  <section id="features" class="features-section">
+    <div class="features-container">
+      
+      <!-- Section Header -->
+      <div class="features-header">
+        <span class="features-badge anim-fade-up">Features</span>
+        <h2 class="features-title anim-fade-up delay-1">Understand Where Your Money Goes</h2>
+        <p class="features-subtitle anim-fade-up delay-2">Everything you need to take control of your finances — built for Filipinos who want clarity without complexity.</p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="features-grid">
+        
+        <!-- Feature Card 1 -->
+        <div class="feature-card anim-pop delay-1">
+          <div class="icon-wrapper icon-chart"></div>
+          <h4 class="card-title">Understand Where Your Money Goes</h4>
+          <p class="card-description">Visual charts and breakdowns show exactly how your budget is split — by category, by week, by month.</p>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="feature-card anim-pop delay-2">
+          <div class="icon-wrapper icon-target"></div>
+          <h4 class="card-title">Set Goals, Stay on Track</h4>
+          <p class="card-description">Create monthly spending limits per category. Get instant alerts when you're close to your budget.</p>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="feature-card anim-pop delay-3">
+          <div class="icon-wrapper icon-zap"></div>
+          <h4 class="card-title">Add Transactions in Seconds</h4>
+          <p class="card-description">Logging income or expenses takes less than 10 seconds. No spreadsheets, no complexity.</p>
+        </div>
+
+        <!-- Feature Card 4 -->
+        <div class="feature-card anim-pop delay-4">
+          <div class="icon-wrapper icon-bell"></div>
+          <h4 class="card-title">Smart Spending Alerts</h4>
+          <p class="card-description">Know instantly when you overspend on food, transport, or entertainment. Stay in control.</p>
+        </div>
+
+        <!-- Feature Card 5 -->
+        <div class="feature-card anim-pop delay-5">
+          <div class="icon-wrapper icon-shield"></div>
+          <h4 class="card-title">Your Data, Stays Yours</h4>
+          <p class="card-description">All your financial data lives in your browser — private by default, no account required to start.</p>
+        </div>
+
+        <!-- Feature Card 6 -->
+        <div class="feature-card anim-pop delay-6">
+          <div class="icon-wrapper icon-smartphone"></div>
+          <h4 class="card-title">Works on Any Device</h4>
+          <p class="card-description">Fully responsive — track your budget from your phone during lunch or your laptop at home.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- PREVIEW -->
+<section class="preview-section" id="preview">
+  <div class="preview-inner">
+    <div class="section-head">
+      <span class="section-eyebrow anim-fade-up" style="color:#05df72">Live Preview</span>
+      <h2 class="section-title anim-fade-up delay-1" style="color:white">See Capitally in Action</h2>
+      <p class="section-sub anim-fade-up delay-2" style="color:#7bf1a8">A real-time look at your dashboard — income, expenses, budget goals, and spending charts all in one place.</p>
+    </div>
+ 
+    <div class="preview-mockup-wrap anim-fade delay-1">
+      <div class="cap-mockup cap-mockup-preview" data-cap-mockup>
+  <div class="cap-window-bar">
+    <div class="cap-window-brand">
+      <span class="cap-brand-dot"></span>
+      <span>Capitally</span>
+    </div>
+    <div class="cap-window-actions" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="cap-app-shell">
+    <aside class="cap-sidebar">
+      <button class="cap-nav-item is-active" type="button" data-panel="overview">Overview</button>
+      <button class="cap-nav-item" type="button" data-panel="budget">Budget</button>
+      <button class="cap-nav-item" type="button" data-panel="goals">Goals</button>
+    </aside>
+
+    <div class="cap-dashboard">
+      <div class="cap-topline">
+        <div>
+          <span class="cap-kicker">Student Budget</span>
+          <h3 class="cap-title">May Dashboard</h3>
+        </div>
+        <div class="cap-month-tabs" aria-label="Choose dashboard month">
+          <button class="cap-month is-active" type="button" data-month="may">May</button>
+          <button class="cap-month" type="button" data-month="june">June</button>
+        </div>
+      </div>
+
+      <div class="cap-summary-grid">
+        <button class="cap-summary-card is-active" type="button" data-summary="balance">
+          <span>Net Balance</span>
+          <strong data-balance>₱24,500</strong>
+        </button>
+        <button class="cap-summary-card" type="button" data-summary="spent">
+          <span>Spent</span>
+          <strong data-spent>₱17,500</strong>
+        </button>
+        <button class="cap-summary-card" type="button" data-summary="saved">
+          <span>Saved</span>
+          <strong data-saved>₱8,200</strong>
+        </button>
+      </div>
+
+      <div class="cap-preview-grid">
+        <section class="cap-panel cap-chart-panel">
+          <div class="cap-panel-head">
+            <span>Spending by Category</span>
+            <button class="cap-chip" type="button" data-action="budget">Set limit</button>
+          </div>
+          <div class="cap-bar-row">
+            <span>Food</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill" data-bar="food"></div></div>
+            <strong data-food>₱5,400</strong>
+          </div>
+          <div class="cap-bar-row">
+            <span>Transport</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill teal" data-bar="transport"></div></div>
+            <strong data-transport>₱2,800</strong>
+          </div>
+          <div class="cap-bar-row">
+            <span>Shopping</span>
+            <div class="cap-bar-track"><div class="cap-bar-fill amber" data-bar="shopping"></div></div>
+            <strong data-shopping>₱4,100</strong>
+          </div>
+        </section>
+
+        <section class="cap-panel cap-insight-panel">
+          <div class="cap-panel-head">
+            <span>Heads up</span>
+            <span class="cap-live-dot">Live</span>
+          </div>
+          <p data-message>Food is taking 31% of your spending. Try setting a ₱4,800 limit this week.</p>
+          <div class="cap-progress-ring" aria-hidden="true"><span data-score>72%</span></div>
+        </section>
+      </div>
+
+      <div class="cap-actions">
+        <button type="button" data-action="expense">+ Expense</button>
+        <button type="button" data-action="income">+ Income</button>
+        <button type="button" data-action="goal">Savings Goal</button>
+      </div>
+
+      <section class="cap-panel cap-transaction-panel">
+        <div class="cap-panel-head">
+          <span>Recent Transactions</span>
+          <span class="cap-muted">Click one</span>
+        </div>
+        <button class="cap-transaction" type="button" data-transaction="food">
+          <span class="cap-txn-icon food">🍔</span>
+          <span><strong>Jollibee</strong><small>Today, 12:30 PM</small></span>
+          <b>−₱280</b>
+        </button>
+        <button class="cap-transaction" type="button" data-transaction="salary">
+          <span class="cap-txn-icon income">💼</span>
+          <span><strong>Salary – May</strong><small>May 15, 2026</small></span>
+          <b class="income">+₱42,000</b>
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
+    </div>
+ 
+    <button class="btn-primary-lg" onclick="alert('App coming soon!')">
+      Try It Now — It's Free
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+</section>
+
+    <!-- TESTIMONIALS -->
+<section class="testimonials-section" id="Testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow anim-fade-up">Testimonials</span>
+      <h2 class="section-title anim-fade-up delay-1">Real People, Real Results</h2>
+      <p class="section-sub anim-fade-up delay-2">Join thousands of Filipinos who already track smarter.</p>
+    </div>
+    <div class="testimonials-grid">
+ 
+      <div class="testimonial-card anim-pop delay-1">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"I used to run out of allowance by week 2. Capitally made me realize I was spending ₱3,000/month on food delivery alone."</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:#22c55e">MS</div>
+          <div>
+            <div class="author-name">Maria Santos</div>
+            <div class="author-role">College student, UP Manila</div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="testimonial-card anim-pop delay-2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Finally a budget app that doesn't feel like filing taxes. I track my expenses every night and I've saved ₱15,000 in 2 months."</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:#0d9488">NR</div>
+          <div>
+            <div class="author-name">Nico Reyes</div>
+            <div class="author-role">BPO Agent, Makati</div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="testimonial-card anim-pop delay-3">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Irregular income used to stress me out. Now I actually know my net cash each month. Highly recommend for freelancers!"</blockquote>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:#047857">CM</div>
+          <div>
+            <div class="author-name">Carla Mendoza</div>
+            <div class="author-role">Freelance Designer, Remote</div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="section-eyebrow anim-fade-up" style="color: #86efac;">Get Started Today</span>
+    <h2 class="section-title anim-fade-up delay-1">Your Financial Clarity<br>Starts with One Click.</h2>
+    <p class="section-sub anim-fade-up delay-2">No sign-up. No credit card. No excuses. Start tracking your pesos in under 60 seconds.</p>
+    <div class="cta-btns anim-pop delay-3">
+      <button class="btn-white" onclick="alert('App coming soon!')">
+        Open My Dashboard
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div class="cta-checks">
+      <div class="perk-item anim-fade-up delay-4">
+              <span class="icon-check"></span>No credit card required
+      </div>
+      <div class="perk-item anim-fade-up delay-5">
+              <span class="icon-check"></span>Works offline
+      </div>
+      <div class="perk-item anim-fade-up delay-6">
+              <span class="icon-check"></span>No account needed to start
+      </div>
+      <div class="perk-item anim-fade-up delay-7">
+              <span class="icon-check"></span>Export your data anytime
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+    <div class="footer-logo">
+      <!-- Same structure as the navbar logo -->
+      <div class="logo-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" x2="12" y1="2" y2="22"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <span class="logo-text">Capitally</span>
+    </div>
+    <p class="copy">© 2026 Capitally · Simple budgeting for everyone.</p>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#preview">Preview</a>
+      <a href="#Testimonials">Reviews</a>
+    </div>
+  </div>
+</footer>
+<script src="index.js"></script>
+  </body>
+</html>
+
+
