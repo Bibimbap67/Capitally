@@ -7,6 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <style>
+        :root {
+            --vh: 1vh;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -17,8 +21,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            min-height: -webkit-fill-available;
+            height: calc(var(--vh) * 100);
             overflow: hidden;
             position: relative;
         }
@@ -28,7 +31,7 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
+            height: calc(var(--vh) * 100);
             background-color: #000000;
             z-index: 9999;
             display: flex;
@@ -48,9 +51,10 @@
             border: 2px solid #39ff14;
             border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.7);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
             transition: all 0.2s ease;
             animation: pulse 1.5s infinite;
+            display: none;
         }
 
         @keyframes pulse {
@@ -64,7 +68,7 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
+            height: calc(var(--vh) * 100);
             z-index: 1;
             pointer-events: none;
         }
@@ -78,8 +82,7 @@
             justify-content: center;
             text-align: center;
             width: 95%;
-            height: 100vh;
-            max-height: 100vh;
+            height: calc(var(--vh) * 100);
             padding: 10px;
             box-sizing: border-box;
         }
@@ -99,18 +102,23 @@
             object-fit: contain;
         }
 
-        video {
-            width: 100%;
+        /* Container that forces a gap-free layout across screen form factors */
+        .video-container {
+            width: 90vw;
             max-width: 640px;
-            height: auto;
-            max-height: 45vh;
-            object-fit: contain;
+            aspect-ratio: 16 / 9; /* Matches the video's green screen dimensions */
             border-radius: 12px;
             border: 2px solid #39ff14;
-            box-shadow: 
-                0 0 20px rgba(57, 255, 20, 0.6),
-                0 0 50px rgba(57, 255, 20, 0.4),
-                inset 0 0 15px rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Forces the video to edge-fill its wrapper without gaps */
+            display: block;
         }
 
         .message-box {
@@ -128,11 +136,8 @@
             text-transform: uppercase;
             letter-spacing: -0.5px;
             background: linear-gradient(45deg, #39ff14, #00ffaa);
-            -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
-            word-wrap: break-word;
-            display: block;
         }
 
         .emoji-wrapper {
@@ -161,7 +166,6 @@
             cursor: pointer;
             box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 100%;
         }
         
         .btn-primary-lg:hover {
@@ -171,39 +175,12 @@
             transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) or (max-height: 600px) {
-            body {
-                height: -webkit-fill-available;
-            }
-            .content-container {
-                height: 100%;
-                justify-content: center;
-                margin-top: 120px;
-                padding-top: 0;
-            }
-            .video-stage {
-                gap: 5px;
-                margin-bottom: 8px;
-            }
-            .scuba-top-gif {
-                width: 90px; 
-            }
-            video {
-                max-width: 280px;
-                max-height: 35vh;
-            }
-            .lang-en { 
-                font-size: 1.4rem; 
-            }
-            .custom-png-emoji {
-                height: 38px;
-            }
-            .btn-primary-lg { 
-                margin-top: 12px;
-                padding: 10px 24px;
-                font-size: 0.9rem;
-                width: 80%;
-            }
+        @media (max-width: 768px) {
+            .scuba-top-gif { width: 90px; }
+            .video-container { max-width: 320px; }
+            .lang-en { font-size: 1.4rem; }
+            .custom-png-emoji { height: 38px; }
+            .btn-primary-lg { margin-top: 12px; padding: 10px 24px; font-size: 0.9rem; width: 80%; }
         }
     </style>
 </head>
@@ -216,12 +193,13 @@
     <canvas id="bg-confetti-canvas"></canvas>
 
     <div class="content-container">
-        
         <div class="video-stage">
             <img class="scuba-top-gif" src="scuba.gif" alt="Scuba Top">
-            <video id="target-video" loop playsinline>
-                <source src="aespa.mp4" type="video/mp4">
-            </video>
+            <div class="video-container">
+                <video id="target-video" loop playsinline>
+                    <source src="aespa.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
 
         <div class="message-box">
@@ -235,6 +213,14 @@
     </div>
 
     <script>
+        function calculateScreenSize() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        calculateScreenSize();
+        window.addEventListener('resize', calculateScreenSize);
+
         window.addEventListener('load', () => {
             const canvasElement = document.getElementById('bg-confetti-canvas');
             const videoElement = document.getElementById('target-video');
@@ -246,33 +232,57 @@
                 useWorker: true
             });
 
-            const isMobile = window.innerWidth <= 768 || window.innerHeight <= 600;
+            const currentWidth = window.innerWidth;
+            const isSmallPhone = currentWidth <= 480;
 
-            // Pre-load the video silently behind the curtain
-            videoElement.muted = true;
-            videoElement.play().catch(err => console.log("Pre-play waiting for interaction"));
+            function fireConfetti() {
+                backgroundConfetti({
+                    particleCount: isSmallPhone ? 120 : 350,
+                    spread: isSmallPhone ? 80 : 360,                                          
+                    startVelocity: isSmallPhone ? 22 : 40,
+                    origin: { x: 0.5, y: isSmallPhone ? 0.35 : 0.15 },           
+                    colors: ['#39ff14', '#00ffaa', '#12b000', '#004400', '#ffffff'] 
+                });
+            }
 
-            startBtn.addEventListener('click', () => {
-                // 1. Unmute the video and restart it with full audio permission
-                videoElement.muted = false;
-                videoElement.currentTime = 0;
-                videoElement.play();
-
-                // 2. Clear out the curtain layer smoothly
+            function dismissCurtain() {
                 curtainElement.style.opacity = '0';
                 setTimeout(() => {
                     curtainElement.style.display = 'none';
                 }, 500);
+            }
 
-                // 3. Fire the custom audio responsive confetti explosion
-                backgroundConfetti({
-                    particleCount: isMobile ? 180 : 450,
-                    spread: isMobile ? 90 : 500,                                          
-                    startVelocity: isMobile ? 35 : 45,
-                    origin: { x: 0.5, y: isMobile ? 0.3 : 0.1 },           
-                    colors: ['#39ff14', '#00ffaa', '#12b000', '#004400', '#ffffff'] 
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+            const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
+
+            if (isIOS || isSafari) {
+                startBtn.style.display = 'block';
+                videoElement.muted = true;
+                videoElement.play().catch(err => console.log("Waiting for gesture..."));
+
+                startBtn.addEventListener('click', () => {
+                    videoElement.muted = false;
+                    videoElement.currentTime = 0;
+                    videoElement.play();
+                    dismissCurtain();
+                    fireConfetti();
                 });
-            });
+            } else {
+                videoElement.muted = false;
+                videoElement.play()
+                    .then(() => {
+                        dismissCurtain();
+                        fireConfetti();
+                    })
+                    .catch(error => {
+                        console.log("Autoplay blocked, falling back to muted auto-play");
+                        videoElement.muted = true;
+                        videoElement.play();
+                        dismissCurtain();
+                        fireConfetti();
+                    });
+            }
         });
     </script>
 </body>
