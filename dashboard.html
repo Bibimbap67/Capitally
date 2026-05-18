@@ -23,6 +23,35 @@
             position: relative;
         }
 
+        #loading-curtain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(57, 255, 20, 0.1);
+            border-top: 4px solid #39ff14;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         #bg-confetti-canvas {
             position: fixed;
             top: 0;
@@ -173,13 +202,17 @@
 </head>
 <body>
 
+    <div id="loading-curtain">
+        <div class="spinner"></div>
+    </div>
+
     <canvas id="bg-confetti-canvas"></canvas>
 
     <div class="content-container">
         
         <div class="video-stage">
             <img class="scuba-top-gif" src="scuba.gif" alt="Scuba Top">
-            <video autoplay loop playsinline>
+            <video id="target-video" loop playsinline>
                 <source src="aespa.mp4" type="video/mp4">
             </video>
         </div>
@@ -197,6 +230,9 @@
     <script>
         window.addEventListener('load', () => {
             const canvasElement = document.getElementById('bg-confetti-canvas');
+            const videoElement = document.getElementById('target-video');
+            const curtainElement = document.getElementById('loading-curtain');
+            
             const backgroundConfetti = confetti.create(canvasElement, {
                 resize: true,
                 useWorker: true
@@ -204,13 +240,28 @@
 
             const isMobile = window.innerWidth <= 768 || window.innerHeight <= 600;
 
-            backgroundConfetti({
-                particleCount: isMobile ? 180 : 450,
-                spread: isMobile ? 90 : 500,                          
-                startVelocity: isMobile ? 35 : 45,
-                origin: { x: 0.5, y: isMobile ? 0.3 : 0.1 },           
-                colors: ['#39ff14', '#00ffaa', '#12b000', '#004400', '#ffffff'] 
+            videoElement.muted = false;
+
+            videoElement.play().catch(error => {
+                videoElement.muted = true;
+                videoElement.play();
             });
+
+            setTimeout(() => {
+                curtainElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    curtainElement.style.display = 'none';
+                }, 500);
+
+                backgroundConfetti({
+                    particleCount: isMobile ? 180 : 450,
+                    spread: isMobile ? 90 : 500,                                          
+                    startVelocity: isMobile ? 35 : 45,
+                    origin: { x: 0.5, y: isMobile ? 0.3 : 0.1 },           
+                    colors: ['#39ff14', '#00ffaa', '#12b000', '#004400', '#ffffff'] 
+                });
+            }, 1000);
         });
     </script>
 </body>
