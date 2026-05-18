@@ -1,6 +1,5 @@
-# 🌟 YOU JUST GOT AESPA!
+# Lucky Cat Who ever see this will be bitchless
 
 <p align="center">
-  <img width="498" height="498" alt="haerin-kang-haerin" src="https://github.com/user-attachments/assets/56db302f-6425-4309-af4e-cabeadf75c38" />
+  <img width="498" height="498" alt="haerin-slow-blink-kpop-asian" src="https://github.com/user-attachments/assets/4cc53e70-ed1b-4aec-9dfa-8aa58498f034" />
 </p>
-
